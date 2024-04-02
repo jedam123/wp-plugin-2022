@@ -1,0 +1,44 @@
+.wfw-filter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+
+  &__name {
+    margin-right: 20px;
+    color: $cloudy-blue;
+  }
+
+  .wfw-input-widget {
+    margin-left: 16px;
+  }
+}
+
+.wfw-filter-box {
+  &__label {
+    margin-right: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover:not(.wfw-filter-box__label--disable):not(&--active) {
+      background-color: $ash-blue;
+    }
+
+    &--active,
+    &--active:hover {
+      background-color: $silver-blue;
+    }
+
+    &--disable {
+      color: $metal-blue;
+    }
+  }
+
+  &__bracket {
+    font-weight: 400;
+  }
+}

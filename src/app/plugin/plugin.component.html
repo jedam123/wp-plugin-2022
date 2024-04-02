@@ -1,0 +1,35 @@
+<div class="plugin-wfw">
+  <app-info-bar
+    text="Connect your API key from Woodpecker first"
+    address="settings"
+    btnLabel="Go to Settings"
+    address="/wfw-settings"
+    *ngIf="!isApiCorrect"
+    @animate
+  ></app-info-bar>
+  <div class="plugin-wfw__full">
+    <div class="container">
+      <app-menu [menu]="menuStructure" [submenu]="submenu"></app-menu>
+      <div class="content">
+        <router-outlet (activate)="checkSubmenu($event)"></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <div class="plugin-wfw__mobile">
+    <div class="wfw-mobile">
+      <div class="wfw-mobile__header">
+        <div class="img--woodpecker-mobile-logo"></div>
+      </div>
+      <div class="img--document"></div>
+      <div class="wfw-mobile__title">
+        You've got us, we don't have<br />a version for mobile devices yet
+      </div>
+      <div class="wfw-mobile__desc">
+        Please use it on desktop computers<br />or if you're using tablet try to
+        rotate it.
+      </div>
+    </div>
+  </div>
+</div>
+<app-overlay></app-overlay>

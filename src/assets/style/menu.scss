@@ -1,0 +1,196 @@
+.wfw-menu {
+  display: flex;
+  overflow: hidden;
+  width: 55px;
+  height: 100%;
+  background-color: $white;
+  transition: all 0.3s ease;
+
+  &--submenu {
+    width: 298px;
+
+    @media only screen and (max-width: 1280px) {
+      width: 111px;
+    }
+
+    .wfw-menu__submenu-container {
+      border-right: 1px solid $foggy-blue;
+      padding: 21px 10px;
+    }
+  }
+
+  &__logo {
+    margin: 15px auto 33px;
+    @extend .img--woodpecker-logo;
+  }
+
+  &__main-container {
+    width: 54px;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px solid $foggy-blue;
+  }
+
+  &__item {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+    @extend .ico-size--lg;
+    @extend .ico-glow;
+    @extend .ico-after-color--midnight-blue;
+  }
+
+  &__submenu-container {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 21px 0;
+    transition: all 0.3s ease;
+
+    .submenu__item--mobile {
+      margin-top: 5px;
+    }
+
+    .submenu {
+      &__title {
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 600;
+        margin-bottom: 20px;
+
+        @media only screen and (max-width: 1280px) {
+          visibility: hidden;
+          margin-bottom: 38px;
+        }
+      }
+
+      &__link {
+        text-transform: uppercase;
+        color: $storm-blue;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        padding-left: 38px;
+        margin-top: 10px;
+        position: relative;
+
+        @media only screen and (max-width: 1280px) {
+          display: none;
+        }
+
+        &:hover {
+          color: $midnight-blue;
+
+          &::before {
+            animation: 2.5s infinite linear arrowAnimation;
+            background-color: $midnight-blue;
+          }
+        }
+
+        &::before {
+          content: '';
+          margin-left: 8px;
+          position: absolute;
+          left: 0;
+          @extend .ico-color--storm-blue;
+          @extend .ico--arrow-left;
+          @extend .ico-size--xs;
+        }
+      }
+
+      &__container {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      &__item {
+        padding: 8px;
+        line-height: 19.5px;
+        font-weight: 400;
+        background-color: $white;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        color: $midnight-blue;
+        margin-bottom: 5px;
+
+        @media only screen and (max-width: 1280px) {
+          display: none;
+        }
+
+        &--mobile {
+          display: none;
+
+          @media only screen and (max-width: 1280px) {
+            display: block;
+            padding: 0;
+            position: relative;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 31px;
+          }
+        }
+
+        span[class*='ico-'] {
+          margin-right: 10px;
+          margin-left: 16px;
+
+          @media only screen and (max-width: 1280px) {
+            margin: auto;
+            inset: 0;
+            position: absolute;
+          }
+        }
+
+        &:hover:not(&--active) {
+          background-color: $ash-blue;
+        }
+
+        &--active,
+        &--active:hover {
+          font-weight: 600;
+          background-color: $silver-blue;
+        }
+
+        &--active,
+        &:hover {
+          color: $midnight-blue;
+
+          span[class*='ico-'] {
+            @extend .ico-color--midnight-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes arrowAnimation {
+  0% {
+    left: 0;
+  }
+  10% {
+    left: -5px;
+  }
+  20% {
+    left: 0;
+  }
+  30% {
+    left: -5px;
+  }
+  40% {
+    left: 0;
+  }
+  90% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+  }
+}

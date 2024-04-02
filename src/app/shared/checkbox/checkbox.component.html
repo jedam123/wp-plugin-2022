@@ -1,0 +1,16 @@
+<div class="wfw-checkbox-widget">
+  <div class="wfw-checkbox-widget__box">
+    <input
+      type="checkbox"
+      class="wfw-checkbox-widget__input"
+      [id]="name"
+      [disabled]="!isEnabled"
+      [checked]="isChecked"
+      (change)="toggle($event)"
+    />
+    <span class="wfw-checkbox-widget__placeholder"></span>
+  </div>
+  <label class="wfw-checkbox-widget__label" for="{{ name }}" *ngIf="label">
+    {{ label }}
+  </label>
+</div>

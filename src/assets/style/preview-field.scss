@@ -1,0 +1,91 @@
+.wfw-preview-field {
+  &__container {
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 5px 10px 10px 0;
+  }
+
+  &__title {
+    font-size: 12px;
+    display: block;
+    line-height: 18px;
+  }
+
+  &__field {
+    display: block;
+    border: 1px solid $metal-blue;
+    background-color: $white;
+    height: 38px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  &__input {
+    flex: 1 0;
+    cursor: move;
+  }
+
+  &__action {
+    display: flex;
+    position: absolute;
+    inset: auto -70px 14px auto;
+    width: 70px;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__move {
+    opacity: 0;
+    position: absolute;
+    right: 7px;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &:hover {
+    .wfw-preview-field__move,
+    .wfw-preview-field__action {
+      opacity: 1;
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 6px;
+    color: $white;
+    border-radius: 5px;
+    border: 1px solid $cornflower-blue;
+    background-color: $cornflower-blue;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    user-select: none;
+    cursor: move;
+    transition: all 0.3s ease;
+
+    &:hover:not(&--disabled) {
+      background-color: $violet-blue;
+      border-color: $violet-blue;
+    }
+
+    &--disabled {
+      cursor: default;
+      background-color: $ghost-blue;
+      border-color: $silver-blue;
+      color: $metal-blue;
+    }
+  }
+}
+
+.cdk-drag-preview .wfw-preview-field__tag {
+  background-color: $white;
+  border-color: $cornflower-blue;
+  color: $cornflower-blue;
+}

@@ -1,0 +1,39 @@
+app-toast {
+  position: absolute;
+  display: block;
+  width: 100%;
+
+  .wfw-toast {
+    background-color: $honey-dew;
+    color: $midnight-blue;
+    line-height: 20px;
+    padding: 5px 28px 5px 38px;
+    border-radius: 5px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    right: 116px;
+    bottom: 36px;
+    position: fixed;
+
+    .ico--close-small {
+      position: absolute;
+      right: 4px;
+      top: 0;
+      bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      cursor: pointer;
+    }
+
+    .ico--check {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      cursor: pointer;
+    }
+  }
+}

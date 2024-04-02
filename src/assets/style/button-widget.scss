@@ -1,0 +1,75 @@
+.wfw-btn {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white;
+  border-radius: 5px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+
+  @mixin btn-color($name, $bg: $black, $bg-hover: $smokey-black, $color: $white) {
+    &--#{$name} {
+      background-color: #{$bg};
+      color: $color;
+
+      &:hover {
+        background-color: #{$bg-hover};
+      }
+    }
+  }
+
+  @include btn-color('black');
+  @include btn-color('silver-blue', $silver-blue, $ash-blue, $storm-blue);
+  @include btn-color('blue', $iris-blue, $cornflower-blue);
+
+
+  &-link {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @mixin color($name, $bg: $black, $bg-hover: $black) {
+      &.#{$name} {
+        color: #{$bg};
+
+        &:hover {
+          color: #{$bg-hover};
+        }
+      }
+    }
+
+    @include color('black');
+    @include color('blue', $iris-blue, $cornflower-blue);
+  }
+
+  &--disabled {
+    cursor: default;
+    background-color: $ghost-blue;
+    color: rgba($metal-blue, 0.7);
+
+    &:hover {
+      background-color: $ghost-blue;
+    }
+  }
+
+  &--lg {
+    min-width: 140px;
+  }
+
+  &--xl {
+    min-width: 262px;
+  }
+}

@@ -1,0 +1,157 @@
+<div class="wfw-form-settings" @animate *ngIf="!loader; else loaderComponent">
+  <div class="wfw-action-header">
+    <div class="wfw-action-header__container">
+      <h1>Style</h1>
+    </div>
+    <div class="wfw-action-header__buttons">
+      <app-button
+        [isEnabled]="isEdited"
+        [buttonWidgetModel]="buttonSave"
+        (open)="saveData()"
+      >
+        Save
+      </app-button>
+      <app-button
+        [isEnabled]="isEdited"
+        [buttonWidgetModel]="buttonUndo"
+        (open)="resetData()"
+      >
+        Undo changes
+      </app-button>
+    </div>
+  </div>
+
+  <div class="wfw-fields__container">
+    <div class="wfw-fields__fields">
+      <div class="wfw-fields__preview">
+        <app-field-preview
+          [field]="field"
+          [showActions]="false"
+          *ngFor="let field of items"
+        ></app-field-preview>
+        <div
+          class="wfw-fields__btn"
+          (mouseover)="toggleButtonColor(true)"
+          (mouseleave)="toggleButtonColor(false)"
+          [style.color]="formsData.font_color"
+          [style.background-color]="formsData.button_color"
+        >
+          {{ formsData.button_label }}
+        </div>
+      </div>
+    </div>
+    <div class="wfw-fields__snippets">
+      <div class="wfw-fields__manage">
+        <app-input
+          label="Button label"
+          placeholder="Button label..."
+          validationMsg="Test"
+          [value]="formsData.button_label"
+          (keyup)="updateField($event, 'button_label', true, false)"
+        ></app-input>
+
+        <div class="wfw-form-settings__custom-style">
+          <div class="wfw-form-settings__header">
+            Custom form style
+            <span
+              class="ico--info ico-color--cloudy-blue ico-size--xxs"
+              appTooltip="Allows you to create your own<br>template styles"
+              [asHtml]="true"
+              [offset]="10"
+            ></span>
+          </div>
+          <app-switch-widget
+            [isActive]="formsData.default_style === '1'"
+            (onClick)="togglePanel()"
+          ></app-switch-widget>
+        </div>
+        <div
+          class="wfw-form-settings__colors-panel"
+          [class.wfw-form-settings__colors-panel--active]="
+            formsData.default_style === '1'
+          "
+        >
+          <div class="wfw-form-settings__colors-row">
+            <div class="wfw-form-settings__colors-box">
+              <div class="wfw-form-settings__colors-label">Button color</div>
+              <div class="wfw-color-button">
+                <span
+                  class="wfw-color-button__color"
+                  [(colorPicker)]="formsData.button_color"
+                  (colorPickerChange)="setEdited()"
+                  [style.background]="formsData.button_color"
+                ></span>
+                <span class="wfw-color-button__hash">#</span>
+                <input
+                  class="wfw-color-button__hash-input"
+                  [value]="formsData.button_color.replace('#', '')"
+                  pattern="/^#[0-9A-F]{6}$/i"
+                  (input)="updateField($event, 'button_color', false, true)"
+                  (blur)="updateField($event, 'button_color', true, true)"
+                />
+              </div>
+            </div>
+            <div class="wfw-form-settings__colors-box">
+              <div class="wfw-form-settings__colors-label">Font color</div>
+              <div class="wfw-color-button">
+                <span
+                  class="wfw-color-button__color"
+                  [(colorPicker)]="formsData.font_color"
+                  (colorPickerChange)="setEdited()"
+                  [style.background]="formsData.font_color"
+                ></span>
+                <span class="wfw-color-button__hash">#</span>
+                <input
+                  class="wfw-color-button__hash-input"
+                  [value]="formsData.font_color.substring(1)"
+                  (input)="updateField($event, 'font_color', false, true)"
+                  (blur)="updateField($event, 'font_color', true, true)"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="wfw-form-settings__colors-row">
+            <div class="wfw-form-settings__colors-box">
+              <div class="wfw-form-settings__colors-label">Button hover</div>
+              <div class="wfw-color-button">
+                <span
+                  class="wfw-color-button__color"
+                  [(colorPicker)]="formsData.button_hover"
+                  (colorPickerChange)="setEdited()"
+                  [style.background]="formsData.button_hover"
+                ></span>
+                <span class="wfw-color-button__hash">#</span>
+                <input
+                  class="wfw-color-button__hash-input"
+                  [value]="formsData.button_hover.substring(1)"
+                  (input)="updateField($event, 'button_hover', false, true)"
+                  (blur)="updateField($event, 'button_hover', true, true)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-empty-state
+    [imageStyle]="'img--form-style'"
+    [title]="'Edit form styles'"
+  >
+    You can add some colors to your form to make it stand out on your
+    website.<br />If you’re happy with your current template styles, leave it
+    switched off.
+  </app-empty-state>
+  <app-toast></app-toast>
+</div>
+
+<app-popup
+  [popupData]="reminderPopup"
+  (onOk)="cancel()"
+  (onCancel)="back()"
+  *ngIf="showLeaveReminder"
+></app-popup>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

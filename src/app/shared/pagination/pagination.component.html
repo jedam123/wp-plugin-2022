@@ -1,0 +1,44 @@
+<div class="wfw-pagination">
+  <span
+    class="wfw-pagination__pages"
+    [class.wfw-pagination__pages--active]="showPopupTooltip"
+    (click)="showTooltip()"
+    #dropdown
+  >
+    {{ pagination.from + 1 }}-{{ pagination.to }} of
+    {{ pagination.count }}
+  </span>
+  <div class="wfw-pagination__page-manage">
+    Page
+    <input
+      class="wfw-pagination__input"
+      type="number"
+      [value]="pagination.page"
+      (blur)="goToPage()"
+      (keydown.enter)="goToPage()"
+    />
+  </div>
+  <div class="wfw-pagination__actions">
+    <div
+      [class.ico-disabled]="pagination.page === 1"
+      class="wfw-pagination__arrow wfw-pagination__arrow--prev ico--left ico-glow ico-size--xs ico-after-color--midnight-blue"
+      (click)="prev()"
+    ></div>
+    <div
+      [class.ico-disabled]="
+        pagination.page ===
+        math.ceil(this.pagination.count / this.pagination.range)
+      "
+      class="wfw-pagination__arrow wfw-pagination__arrow--next ico--right ico-glow ico-size--xs ico-after-color--midnight-blue"
+      (click)="next()"
+    ></div>
+  </div>
+</div>
+<app-popup-tooltip
+  [width]="130"
+  [topOffset]="14"
+  [data]="pageTooltipData"
+  (choose)="selectItem($event)"
+  class="wfw-pagination-tooltip"
+  #tooltip
+></app-popup-tooltip>

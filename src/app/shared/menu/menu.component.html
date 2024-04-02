@@ -1,0 +1,80 @@
+<div class="wfw-menu" [class.wfw-menu--submenu]="submenu" *ngIf="menu">
+  <div class="wfw-menu__main-container">
+    <div class="wfw-menu__logo"></div>
+    <ng-container *ngFor="let item of menu">
+      <div
+        [routerLink]="item.address"
+        routerLinkActive="ico-active"
+        class="wfw-menu__item"
+        [class]="item.icon"
+        [appTooltip]="item.tooltip"
+        [direction]="'right'"
+        [offset]="10"
+        *ngIf="item.address; else contextMenuButton"
+      ></div>
+      <ng-template #contextMenuButton>
+        <div
+          class="wfw-menu__item wfw-menu__item--tooltip"
+          [class.ico-active]="item.active"
+          [class]="item.icon"
+          (click)="showTooltip(item, $event)"
+          [appTooltip]="item.tooltip"
+          [direction]="'right'"
+          [offset]="10"
+          #popupItem
+        ></div>
+        <app-popup-tooltip
+          [data]="item.popupTooltipData"
+          [leftOffset]="9"
+          class="wfw-menu__list"
+          #tooltip
+        ></app-popup-tooltip>
+      </ng-template>
+    </ng-container>
+  </div>
+  <div class="wfw-menu__submenu-container">
+    <ng-container *ngIf="submenu">
+      <div class="submenu__title" *ngIf="!submenu.address; else link">
+        {{ submenu.title }}
+      </div>
+      <ng-template #link>
+        <a [routerLink]="submenu.address" class="submenu__link">
+          {{ submenu.title }}
+        </a>
+        <a
+          [routerLink]="submenu.address"
+          class="submenu__item submenu__item--mobile"
+        >
+          <span
+            class="ico-size--xs ico-color--midnight-blue ico--arrow-left"
+          ></span>
+        </a>
+      </ng-template>
+      <div class="submenu__container">
+        <a
+          [routerLink]="item.address"
+          *ngFor="let item of submenu.menu"
+          class="submenu__item"
+          routerLinkActive="submenu__item--active"
+        >
+          <span
+            class="ico-size--xs ico-color--cloudy-blue"
+            [class]="item.icon"
+          ></span>
+          {{ item.label }}
+        </a>
+        <a
+          [routerLink]="item.address"
+          *ngFor="let item of submenu.menu"
+          class="submenu__item submenu__item--mobile"
+          routerLinkActive="submenu__item--active"
+        >
+          <span
+            class="ico-size--xs ico-color--midnight-blue"
+            [class]="item.icon"
+          ></span>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</div>

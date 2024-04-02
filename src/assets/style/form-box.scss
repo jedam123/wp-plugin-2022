@@ -1,0 +1,71 @@
+.wfw-form-box {
+  height: 157px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  &--new {
+    display: flex;
+    justify-content: center;
+    background-color: $ash-blue;
+    width: 100%;
+  }
+
+  &--existing {
+    width: 254px;
+    height: 122px;
+    padding: 21px 22px 12px;
+    border-radius: 10px;
+    border: 1px solid $foggy-blue;
+    position: relative;
+
+    .wfw-form-box {
+      &__shortcode {
+        position: absolute;
+        bottom: 10px;
+        left: 16px;
+        right: 16px;
+        font-size: 12px;
+        color: $iris-blue;
+        padding: 2px 8px;
+
+        &:hover {
+          color: $cornflower-blue;
+        }
+      }
+
+      &__text {
+        padding: 0;
+        font-size: 15px;
+        font-weight: 600;
+        color: $midnight-blue;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .ico--settings {
+      position: absolute;
+      right: 7px;
+      top: 13px;
+    }
+  }
+
+  &__text {
+    display: inline-flex;
+    font-size: 13px;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 46px;
+    color: $midnight-blue;
+
+    &::before {
+      content: '';
+      margin-bottom: 12px;
+      @extend .ico--plus;
+      @extend .ico-color--midnight-blue;
+      @extend .ico-size--sm;
+    }
+  }
+}

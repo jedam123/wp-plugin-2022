@@ -1,0 +1,17 @@
+.wfw-action-header {
+  display: flex;
+  justify-content: space-between;
+
+  &__desc {
+    font-size: 11px;
+    line-height: 16.5px;
+    margin-top: -8px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 321px;
+  }
+}

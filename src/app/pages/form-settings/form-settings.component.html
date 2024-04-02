@@ -1,0 +1,79 @@
+<div class="wfw-form-settings" @animate *ngIf="!loader; else loaderComponent">
+  <div class="wfw-action-header">
+    <div class="wfw-action-header__container">
+      <h1>Form settings</h1>
+    </div>
+    <div class="wfw-action-header__buttons">
+      <app-button
+        [buttonWidgetModel]="buttonSave"
+        [isEnabled]="isEdited"
+        (open)="saveFields()"
+      >
+        Save
+      </app-button>
+      <app-button
+        [buttonWidgetModel]="buttonUndo"
+        [isEnabled]="isEdited"
+        (open)="resetField()"
+      >
+        Undo changes
+      </app-button>
+    </div>
+  </div>
+
+  <form class="wfw-panel">
+    <div class="wfw-panel__title">Messages</div>
+    <div class="wfw-panel__desc">
+      These messages will appear after submitting data by your prospect.
+    </div>
+    <app-input
+      label="Success message"
+      placeholder="E.g. “Your form has been submitted.”"
+      [value]="formsData.success_message"
+      (onEdit)="updateMessage($event, 'success_message')"
+    ></app-input>
+    <app-input
+      label="Error message"
+      placeholder="E.g. “Something went wrong. Please try again.”"
+      [value]="formsData.error_message"
+      (onEdit)="updateMessage($event, 'error_message')"
+    ></app-input>
+    <app-input
+      label="“Email already exists” message"
+      placeholder="E.g. “Looks like your email already exists in our database.”"
+      [value]="formsData.already_exist_message"
+      (onEdit)="updateMessage($event, 'already_exist_message')"
+    ></app-input>
+    <app-input
+      label="Field required message"
+      placeholder="E.g. “This field is required.”"
+      [value]="formsData.field_required_message"
+      (onEdit)="updateMessage($event, 'field_required_message')"
+    ></app-input>
+  </form>
+
+  <form class="wfw-panel">
+    <div class="wfw-panel__title">Privacy policy</div>
+    <div class="wfw-panel__desc">
+      It will be added to the checkbox at the bottom of your form.
+    </div>
+    <app-input
+      label="Privacy policy message"
+      placeholder="E.g. “I accept privacy policy.”"
+      [value]="formsData.privacy_policy_message"
+      (onEdit)="updateMessage($event, 'privacy_policy_message')"
+    ></app-input>
+  </form>
+  <app-toast></app-toast>
+</div>
+
+<app-popup
+  [popupData]="reminderPopup"
+  (onOk)="cancel()"
+  (onCancel)="back()"
+  *ngIf="showLeaveReminder"
+></app-popup>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

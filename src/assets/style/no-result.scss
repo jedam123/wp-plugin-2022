@@ -1,0 +1,26 @@
+.wfw-no-result {
+  text-align: center;
+  margin-bottom: 120px;
+
+  &__img {
+    width: 220px;
+    height: 169px;
+    margin: 50px auto 44px;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    color: $iris-blue;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+      color: $cornflower-blue;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+app-input {
+  display: flex;
+}
+
+.wfw-input-widget {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &__label {
+    display: block;
+    text-align: left;
+    max-width: 100%;
+    margin-bottom: 2px;
+    line-height: 19px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  input::placeholder {
+    color: $metal-blue;
+    opacity: 1;
+  }
+
+  input:-ms-input-placeholder {
+    color: $metal-blue;
+  }
+
+  input::-ms-input-placeholder {
+    color: $metal-blue;
+  }
+
+  &__input {
+    outline: none;
+    color: $midnight-blue;
+    font-size: 14px;
+    border: 1px solid $metal-blue;
+    padding: 0 10px;
+    border-radius: 5px;
+    line-height: 34px;
+    width: 100%;
+    transition: color, border-color 0.3s ease;
+    box-sizing: border-box;
+    font-weight: 400;
+
+    &--search {
+      padding: 0 40px;
+    }
+
+    &:hover {
+      border-color: $cloudy-blue;
+    }
+
+    &:focus {
+      border-color: $midnight-blue;
+
+      &::placeholder {
+        color: $cloudy-blue;
+        opacity: 1;
+      }
+
+      &:-ms-input-placeholder {
+        color: $cloudy-blue;
+      }
+
+      &::-ms-input-placeholder {
+        color: $cloudy-blue;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    .ico--search,
+    .ico--close {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      background-color: $midnight-blue;
+    }
+
+    .ico--search {
+      left: 12px
+    }
+
+    .ico--close {
+      right: 12px;
+      cursor: pointer;
+    }
+  }
+
+  &__error {
+    color: $cherry-red;
+    box-sizing: border-box;
+    opacity: 0;
+    height: 0;
+    margin-top: 0;
+    text-align: left;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 21px;
+    position: relative;
+    font-size: 11px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      @extend .ico--error;
+      display: inline-block;
+      overflow: hidden;
+      background-color: $cherry-red;
+      width: 17px;
+      height: 0;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &--show-validation {
+    .wfw-input-widget__error {
+      opacity: 1;
+      margin-top: 4px;
+      height: 17px;
+
+      &::before {
+        height: 17px;
+      }
+    }
+
+    .wfw-input-widget__input {
+      border-color: $cherry-red;
+    }
+  }
+
+  &--disabled {
+    .wfw-input-widget__label {
+      color: $metal-blue;
+    }
+
+    .wfw-input-widget__input {
+      color: $metal-blue;
+      -webkit-text-fill-color: $metal-blue;
+      border-color: $foggy-blue;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="wfw-empty-state">
+  <div class="wfw-empty-state__img" [ngClass]="imageStyle"></div>
+  <div class="wfw-empty-state__container">
+    <div class="wfw-empty-state__title" *ngIf="title">{{ title }}</div>
+    <ng-content></ng-content>
+  </div>
+</div>

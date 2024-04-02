@@ -1,0 +1,104 @@
+<div class="wfw-fields" @animate *ngIf="!loader; else loaderComponent">
+  <div class="wfw-action-header">
+    <div class="wfw-action-header__container">
+      <h1>Fields</h1>
+    </div>
+    <div class="wfw-action-header__buttons">
+      <app-button
+        [buttonWidgetModel]="buttonSave"
+        [isEnabled]="isChanged"
+        (open)="saveFields()"
+      >
+        Save
+      </app-button>
+      <app-button
+        [buttonWidgetModel]="buttonUndo"
+        [isEnabled]="isChanged"
+        (open)="resetForm()"
+      >
+        Undo changes
+      </app-button>
+    </div>
+  </div>
+  <div class="wfw-action-header__desc">
+    Click on snippets or drag & drop them from the right to the left side to add
+    more fields
+  </div>
+
+  <div class="wfw-fields__container">
+    <div class="wfw-fields__fields">
+      <div class="wfw-fields__preview">
+        <div
+          cdkDropList
+          #tagsList="cdkDropList"
+          [cdkDropListData]="items"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-field-preview
+            [field]="field"
+            (remove)="removeField(field)"
+            (edit)="showPanel(field)"
+            *ngFor="let field of items"
+            cdkDrag
+          ></app-field-preview>
+        </div>
+        <div
+          class="wfw-fields__btn"
+          (mouseover)="toggleButtonColor(true)"
+          (mouseleave)="toggleButtonColor(false)"
+          [style.color]="formsData?.font_color"
+          [style.background-color]="formsData?.button_color"
+        >
+          Send
+        </div>
+      </div>
+    </div>
+
+    <div class="wfw-fields__snippets">
+      <div
+        class="wfw-fields__manage"
+        cdkDropList
+        cdkDropListSortingDisabled
+        [cdkDropListData]="allTags"
+        [cdkDropListConnectedTo]="[tagsList]"
+      >
+        <app-field-preview
+          [field]="field"
+          [tag]="true"
+          [cdkDragDisabled]="field.disabled"
+          (click)="addField(field)"
+          *ngFor="let field of allTags"
+          cdkDrag
+        ></app-field-preview>
+      </div>
+    </div>
+  </div>
+  <app-edit-panel
+    [data]="editFieldData"
+    [allTags]="items"
+    [dropdownData]="dropdownData"
+    (close)="closePanel()"
+    (done)="updateData($event)"
+    *ngIf="editFieldData"
+  ></app-edit-panel>
+
+  <app-empty-state
+    [imageStyle]="'img--form-fields'"
+    [title]="'Edit form fields'"
+  >
+    Hover on any field, then click edit to match it to a particular Woodpecker
+    snippet.
+  </app-empty-state>
+  <app-toast></app-toast>
+</div>
+
+<app-popup
+  [popupData]="reminderPopup"
+  (onOk)="cancel()"
+  (onCancel)="back()"
+  *ngIf="showLeaveReminder"
+></app-popup>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

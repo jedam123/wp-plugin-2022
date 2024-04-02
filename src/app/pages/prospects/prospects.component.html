@@ -1,0 +1,290 @@
+<div class="wfw-prospects" @animate *ngIf="!loader; else loaderComponent">
+  <app-loader *ngIf="refreshPage"></app-loader>
+  <h1>Prospects from the Woodpecker WordPress Plugin</h1>
+  <div class="wfw-prospects__desc">
+    All prospects subscribed to your WordPress website will appear on this page.
+    Each prospect who fills in the form will appear in Woodpecker Prospects
+    database with the tag #WORDPRESS assigned to it.
+    <a href="https://app.woodpecker.co/panel#prospects" target="_blank">See prospects in Woodpecker app</a>
+  </div>
+
+  <ng-container *ngIf="prospects || keyList.length > 0; else emptyState">
+    <div class="wfw-prospects__table">
+      <div class="wfw-filter">
+        <div class="wfw-filter__name">filter by:</div>
+        <app-filter
+          label="Status"
+          [width]="223"
+          [options]="statusOption"
+          [keysList]="keyList"
+          (filter)="filter($event)"
+        ></app-filter>
+      </div>
+
+      <ng-container *ngIf="prospects; else noResults">
+        <ng-scrollbar
+          track="all"
+          class="wfw-scroll-panel"
+          trackClass="scrollbar"
+          thumbClass="scrollbar-thumb"
+        >
+          <div class="wfw-table wfw-table--header">
+            <div class="wfw-table__cell">Email</div>
+            <div class="wfw-table__cell">Status</div>
+            <div class="wfw-table__cell">First name</div>
+            <div class="wfw-table__cell">Company</div>
+            <div class="wfw-table__cell">Website</div>
+            <div class="wfw-table__cell">Country</div>
+            <div class="wfw-table__cell">Company</div>
+            <div class="wfw-table__cell">City</div>
+            <div class="wfw-table__cell">Address</div>
+            <div class="wfw-table__cell">Linkedin URL</div>
+            <div class="wfw-table__cell">Phone</div>
+            <div class="wfw-table__cell">Snippet 1</div>
+            <div class="wfw-table__cell">Snippet 2</div>
+            <div class="wfw-table__cell">Snippet 3</div>
+            <div class="wfw-table__cell">Snippet 4</div>
+            <div class="wfw-table__cell">Snippet 5</div>
+            <div class="wfw-table__cell">Snippet 6</div>
+            <div class="wfw-table__cell">Snippet 7</div>
+            <div class="wfw-table__cell">Snippet 8</div>
+            <div class="wfw-table__cell">Snippet 9</div>
+            <div class="wfw-table__cell">Snippet 10</div>
+            <div class="wfw-table__cell">Snippet 11</div>
+            <div class="wfw-table__cell">Snippet 12</div>
+            <div class="wfw-table__cell">Snippet 13</div>
+            <div class="wfw-table__cell">Snippet 14</div>
+            <div class="wfw-table__cell">Snippet 15</div>
+          </div>
+
+          <div class="wfw-table wfw-table--row" *ngFor="let item of prospects">
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.email"
+              [setOnTruncate]="true"
+            >
+              {{ item.email }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.status"
+              [setOnTruncate]="true"
+            >
+              <span
+                class="wfw-prospects__status"
+                [ngClass]="
+                  'wfw-prospects__status--' + item.status.toLowerCase()
+                "
+              ></span>
+              {{ campaignStatusMapper(item.status).toUpperCase() }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.first_name"
+              [setOnTruncate]="true"
+            >
+              {{ item.first_name }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.last_name"
+              [setOnTruncate]="true"
+            >
+              {{ item.last_name }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.website"
+              [setOnTruncate]="true"
+            >
+              {{ item.website }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.country"
+              [setOnTruncate]="true"
+            >
+              {{ item.country }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.company"
+              [setOnTruncate]="true"
+            >
+              {{ item.company }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.city"
+              [setOnTruncate]="true"
+            >
+              {{ item.city }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.address"
+              [setOnTruncate]="true"
+            >
+              {{ item.address }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.linkedin_url"
+              [setOnTruncate]="true"
+            >
+              {{ item.linkedin_url }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.phone"
+              [setOnTruncate]="true"
+            >
+              {{ item.phone }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet1"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet1 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet2"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet2 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet3"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet3 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet4"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet4 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet5"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet5 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet6"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet6 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet7"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet7 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet8"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet8 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet9"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet9 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet10"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet10 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet11"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet11 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet12"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet12 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet13"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet13 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet14"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet14 }}
+            </div>
+            <div
+              class="wfw-table__cell"
+              [appTooltip]="item.snippet15"
+              [setOnTruncate]="true"
+            >
+              {{ item.snippet15 }}
+            </div>
+          </div>
+        </ng-scrollbar>
+      </ng-container>
+      <ng-template #noResults>
+        <div class="wfw-scroll-panel">
+          <div class="wfw-table wfw-table--header">
+            <div class="wfw-table__cell">Email</div>
+            <div class="wfw-table__cell">Status</div>
+            <div class="wfw-table__cell">First name</div>
+            <div class="wfw-table__cell">Company</div>
+            <div class="wfw-table__cell">Website</div>
+            <div class="wfw-table__cell">Country</div>
+          </div>
+          <app-no-result (clickEvent)="clearFilters()"></app-no-result>
+        </div>
+      </ng-template>
+    </div>
+
+    <app-pagination
+      [pagination]="pagination"
+      (pageEmitter)="setPagination($event)"
+      *ngIf="pagination.count > 10"
+    ></app-pagination>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <app-empty-state [imageStyle]="'img--prospects'" [title]="'No prospects?'">
+      <p>
+        If you pasted your shortcode to the settings in WordPress, just relax
+        and wait.
+      </p>
+      If not, paste it to the settings in WordPress to make the form visible
+      on<br />
+      any subpage in WordPress.<br />
+      <a routerLink="/wfw-campaigns">Check your shortcodes</a>
+    </app-empty-state>
+  </ng-template>
+</div>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

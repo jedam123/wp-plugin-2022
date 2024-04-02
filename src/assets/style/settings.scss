@@ -1,0 +1,27 @@
+.wfw-settings {
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .wfw-btn {
+    margin-top: 20px;
+  }
+
+  .wfw-panel {
+    margin-top: 34px;
+
+    &__header {
+      position: relative;
+    }
+
+    .ico--edit {
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+
+    app-button {
+      margin-right: 16px;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.wfw-campaigns {
+  .ico--html {
+    cursor: auto;
+  }
+
+  h1 {
+    margin-bottom: 18px;
+  }
+
+  &__desc {
+    margin-bottom: 85px;
+  }
+
+  &__belt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $cornflower-blue-10;
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin-top: 33px;
+    margin-bottom: 79px;
+
+    .ico--copy:hover {
+      background-color: $breeze-blue;
+    }
+  }
+
+  &__belt-left,
+  &__belt-right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__belt-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 24px;
+  }
+
+  &__belt-shortcode {
+    margin-right: 87px;
+  }
+
+  &__table {
+    margin-top: 14px;
+    margin-bottom: 15px;
+
+    .wfw-filter {
+      margin-bottom: 20px;
+    }
+
+    .wfw-input-widget {
+      width: 223px;
+    }
+  }
+
+  &__shortcode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .status {
+    display: block;
+    margin: auto;
+    @extend .ico-size--lg;
+    @extend .ico-glow--circle;
+    position: relative;
+
+    &--running,
+    &--draft,
+    &--edited,
+    &--completed,
+    &--stopped,
+    &--paused {
+      background-color: $ash-blue;
+
+      &::after {
+        content: '';
+        position: absolute;
+        margin: auto;
+        inset: 0;
+      }
+    }
+
+    &--draft::after,
+    &--edited::after {
+      @extend .ico-color--midnight-blue;
+    }
+
+    &--running {
+      background-color: $spring-green-10;
+
+      &::after {
+        @extend .ico--play;
+        @extend .ico-color--spring-green;
+      }
+    }
+
+    &--draft {
+      background-color: $ash-blue;
+
+      &::after {
+        @extend .ico--draft;
+      }
+    }
+
+    &--edited {
+      background-color: $ash-blue;
+
+      &::after {
+        @extend .ico--edit;
+      }
+    }
+
+    &--completed {
+      background-color: $ash-blue;
+
+      &::after {
+        @extend .ico--done;
+        @extend .ico-color--metal-blue;
+      }
+    }
+
+    &--stopped {
+      background-color: $cherry-red-10;
+
+      &::after {
+        @extend .ico--stop;
+        @extend .ico-color--cherry-red;
+      }
+    }
+
+    &--paused {
+      background-color: $cornflower-blue-10;
+
+      &::after {
+        @extend .ico--pause;
+        @extend .ico-color--cornflower-blue;
+      }
+    }
+  }
+
+  .wfw-table {
+    grid-template-columns: 76px 1fr 389px 336px;
+
+    @media only screen and (max-width: 1280px) {
+      grid-template-columns: 76px 0.9fr 0.7fr 336px;
+    }
+
+    &__cell {
+      &:not(:first-child) {
+        padding-right: 10px;
+      }
+
+      &:nth-child(2) {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .wfw-pagination {
+    margin-bottom: 25px;
+  }
+}

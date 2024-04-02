@@ -1,0 +1,32 @@
+<div
+  class="wfw-dropdown-widget"
+  [class.wfw-dropdown-widget--opened]="isOpen"
+  [class.wfw-dropdown-widget--disabled]="!data.isEnabled"
+  *ngIf="data"
+>
+  <div class="wfw-dropdown-widget__label" *ngIf="data.label">
+    {{ data.label }}
+  </div>
+  <div
+    class="wfw-dropdown-widget__input"
+    (click)="openTooltip($event)"
+    #dropdown
+  >
+    <app-input
+      [value]="defaultValue"
+      [placeholder]="data.placeholder"
+      [isEnabled]="false"
+      [isError]="isError"
+      [validationMsg]="data.validationMsg"
+      class="wfw-dropdown-input"
+    ></app-input>
+  </div>
+  <app-popup-tooltip
+    [data]="data.options"
+    [width]="240"
+    [topOffset]="-20"
+    (choose)="setValue($event)"
+    class="wfw-dropdown-tooltip"
+    #tooltip
+  ></app-popup-tooltip>
+</div>

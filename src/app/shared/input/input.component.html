@@ -1,0 +1,28 @@
+<div
+  class="wfw-input-widget"
+  [class.wfw-input-widget--disabled]="!isEnabled"
+  [class.wfw-input-widget--show-validation]="isError"
+>
+  <div class="wfw-input-widget__label" *ngIf="label">{{ label }}</div>
+  <div class="wfw-input-widget__container">
+    <span class="ico--search ico-size--xxs" *ngIf="type === 'search'"></span>
+    <input
+      class="wfw-input-widget__input"
+      [class.wfw-input-widget__input--search]="type === 'search'"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="!isEnabled"
+      (blur)="updateValue($event)"
+      (keydown)="onKeydown($event)"
+      (keydown.enter)="enter($event)"
+    />
+    <span
+      class="ico--close ico-size--xxs"
+      *ngIf="type === 'search' && hasValue"
+      (click)="clearValue()"
+    ></span>
+  </div>
+  <div class="wfw-input-widget__error" *ngIf="validationMsg">
+    {{ validationMsg }}
+  </div>
+</div>

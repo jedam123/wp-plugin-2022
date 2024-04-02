@@ -1,0 +1,33 @@
+.wfw-color-button {
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid $metal-blue;
+  padding: 5px;
+  align-items: center;
+  width: 117px;
+
+  &__color {
+    border-radius: 5px;
+    border: 1px solid $foggy-blue;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+
+  &__hash {
+    color: $cloudy-blue;
+    font-size: 14px;
+    margin-left: 12px;
+  }
+
+  &__hash-input {
+    outline: none;
+    border: 0;
+    font-size: 14px;
+    padding: 0;
+    margin: -1px 0 0;
+    line-height: 28px;
+    text-transform: uppercase;
+    width: 63px;
+  }
+}

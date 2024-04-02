@@ -1,0 +1,41 @@
+<div
+  class="wfw-popup-tooltip"
+  [style.height]="height + 'px'"
+  [style.width]="width + 'px'"
+  [style.left]="left + 'px'"
+  [style.top]="top + 'px'"
+  *ngIf="data && show"
+>
+  <div class="wfw-popup-tooltip__title">{{ data.title }}</div>
+  <ng-scrollbar track="vertical">
+    <ng-container *ngFor="let item of data.items">
+      <div
+        class="wfw-popup-tooltip__item"
+        [class.wfw-popup-tooltip__item--check]="item.popupItems.choose"
+        (click)="onClick(item.key)"
+        *ngIf="!item.popupItems.isHidden"
+      >
+        <span
+          class="wfw-popup-tooltip__icon ico-size--xs ico-color--cloudy-blue"
+          [ngClass]="item.popupItems.icon"
+          *ngIf="item.popupItems.icon"
+        ></span>
+        <span class="wfw-popup-tooltip__text" *ngIf="!item.popupItems.address">
+          {{ item.popupItems.value }}
+        </span>
+        <a
+          [href]="item.popupItems.address"
+          class="wfw-popup-tooltip__text"
+          *ngIf="item.popupItems.address"
+          target="_blank"
+        >
+          {{ item.popupItems.value }}
+        </a>
+        <span
+          class="wfw-popup-tooltip__mark ico--tick ico-size--xs ico-color--spring-green"
+          *ngIf="item.popupItems.choose"
+        ></span>
+      </div>
+    </ng-container>
+  </ng-scrollbar>
+</div>

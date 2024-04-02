@@ -1,0 +1,36 @@
+<div class="wfw-preview-field">
+  <ng-container *ngIf="tag; else input">
+    <div
+      class="wfw-preview-field__tag"
+      [class.wfw-preview-field__tag--disabled]="field.disabled"
+    >
+      {{ field.name }}
+    </div>
+  </ng-container>
+  <ng-template #input>
+    <div class="wfw-preview-field__container">
+      <div class="wfw-preview-field__input">
+        <div class="wfw-preview-field__title">{{ field.name }}</div>
+        <div class="wfw-preview-field__field">
+          <span
+            class="wfw-preview-field__move ico--drag ico-color--midnight-blue ico-size--sm"
+          ></span>
+        </div>
+      </div>
+
+      <div class="wfw-preview-field__action" *ngIf="showActions">
+        <div
+          class="ico--edit ico-after-color--midnight-blue ico-glow ico-size--md"
+          appTooltip="Map and edit field"
+          (click)="onEdit()"
+        ></div>
+        <div
+          class="ico--delete ico-after-color--midnight-blue ico-glow ico-size--md"
+          appTooltip="Delete field"
+          [class.ico-disabled]="checkEmailField(field)"
+          (click)="onRemove()"
+        ></div>
+      </div>
+    </div>
+  </ng-template>
+</div>

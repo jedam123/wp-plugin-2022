@@ -1,0 +1,27 @@
+<div class="wfw-popup">
+  <div
+    class="wfw-popup__overlay"
+    [class.wfw-popup__overlay--color]="popupData.isOverlayColor"
+  ></div>
+  <div class="wfw-popup__container" @animate *ngIf="isOpen">
+    <div class="wfw-popup__icon" [ngClass]="popupData.imageStyle"></div>
+    <div class="wfw-popup__title">{{ popupData.title }}</div>
+    <div class="wfw-popup__content">{{ popupData.content }}</div>
+    <div class="wfw-popup__action">
+      <app-button
+        [buttonWidgetModel]="buttonOk"
+        *ngIf="popupData.btnOk"
+        (open)="onClickOk()"
+      >
+        {{ popupData.btnOk }}
+      </app-button>
+      <app-button
+        [buttonWidgetModel]="buttonCancel"
+        *ngIf="popupData.btnCancel"
+        (open)="onClickCancel()"
+      >
+        {{ popupData.btnCancel }}
+      </app-button>
+    </div>
+  </div>
+</div>

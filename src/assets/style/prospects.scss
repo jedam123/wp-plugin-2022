@@ -1,0 +1,83 @@
+.wfw-prospects {
+  h1 {
+    margin-bottom: 18px;
+  }
+
+  &__table {
+    margin-top: 41px;
+    margin-bottom: 15px;
+
+    .wfw-filter {
+      margin-bottom: 29px;
+
+      app-filter .wfw-filter-box .wfw-filter-box__label {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .wfw-scroll-panel {
+    overflow: hidden;
+    width: 100%;
+    height: 535px;
+
+    .wfw-table {
+      grid-template-columns: 285px repeat(25, 175px);
+    }
+  }
+
+  &__status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+
+    &--active {
+      background-color: $spring-green;
+    }
+
+    &--blacklist {
+      background-color: $black;
+    }
+
+    &--invalid {
+      background-color: $metal-blue;
+    }
+
+    &--bounced {
+      background-color: $pumpkin-orange;
+    }
+
+    &--opt_out {
+      background-color: $cherry-red;
+    }
+
+    &--replied {
+      background-color: $aquamarine-green;
+    }
+  }
+
+  .wfw-table {
+    grid-template-columns: 250px;
+    grid-gap: 20px;
+
+    &--header {
+      position: sticky;
+      top: 0;
+    }
+
+    &__cell {
+      padding-right: 10px;
+
+      &:first-child {
+        padding-left: 8px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .wfw-empty-state {
+    margin-top: 48px;
+  }
+}

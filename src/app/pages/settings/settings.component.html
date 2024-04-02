@@ -1,0 +1,45 @@
+<div class="wfw-settings" @animate *ngIf="!loader; else loaderComponent">
+  <h1>API key</h1>
+  <form class="wfw-panel">
+    <div class="wfw-panel__header">
+      <div class="wfw-panel__title">Setup API key</div>
+      <div class="wfw-panel__desc">
+        Generate your API key in Woodpecker settings, then paste it here.
+      </div>
+      <div
+        class="ico--edit ico-size--xs ico-glow ico-after-color--midnight-blue"
+        (click)="editMode = !editMode"
+        *ngIf="apiKey && !editMode"
+      ></div>
+    </div>
+    <app-input
+      label="API key"
+      placeholder="Paste your API key..."
+      validationMsg="Test"
+      [value]="apiKey"
+      validationMsg="This API key doesn't exists"
+      [isError]="isError"
+      [isEnabled]="editMode"
+      (onEdit)="updateValue($event)"
+      (keyUp)="isError = false"
+    ></app-input>
+    <app-button
+      [buttonWidgetModel]="saveButton"
+      (open)="saveData()"
+      *ngIf="!apiKey || editMode"
+    >
+      Save
+    </app-button>
+    <app-button
+      [buttonWidgetModel]="cancelButton"
+      (open)="cancel()"
+      *ngIf="!apiKey || editMode"
+    >
+      Cancel
+    </app-button>
+  </form>
+</div>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,31 @@
+.wfw-switch-widget {
+  width: 39px;
+  height: 14px;
+  border-radius: 20px;
+  background-color: $metal-blue;
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+  position: relative;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  span {
+    border-radius: 50%;
+    background-color: $white;
+    width: 14px;
+    height: 14px;
+    display: block;
+    left: 3px;
+    position: absolute;
+    transition: left 0.3s ease;
+  }
+
+  &--active {
+    background-color: $spring-green;
+
+    span {
+      left: 22px;
+    }
+  }
+}

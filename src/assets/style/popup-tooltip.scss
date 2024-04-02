@@ -1,0 +1,78 @@
+.wfw-popup-tooltip {
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+  height: auto;
+  background-color: $white;
+  border-radius: 5px;
+  transition: height, opacity 0.2s ease;
+  white-space: nowrap;
+  padding: 14px 10px;
+  z-index: 3;
+  width: 100%;
+  border: 1px solid $silver-blue;
+  box-shadow: 6px 4px 30px rgba(44, 49, 65, 0.1);
+
+  &__mark {
+    right: -10px;
+    position: relative;
+  }
+
+  ng-scrollbar {
+    height: calc(100% - 35px);
+
+    .ng-scrollbar-wrapper[deactivated='false'][dir='ltr'] {
+      > scrollbar-y.scrollbar-control {
+        right: -11px;
+      }
+    }
+  }
+
+  .ng-scroll-content {
+    min-width: unset;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-left: 10px;
+    margin-bottom: 14px;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__text {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 20px);
+  }
+
+  a,
+  a:hover {
+    color: $midnight-blue;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 20px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    padding: 5px 20px 5px 10px;
+
+    &--check {
+      justify-content: space-between;
+    }
+
+    &:hover {
+      background-color: $ash-blue;
+    }
+  }
+}

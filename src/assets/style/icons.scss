@@ -1,0 +1,469 @@
+.ico {
+  &--arrow-left,
+  &--arrow-left::after {
+    mask: url('../icons/ico_arrow-left.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--arrow-right,
+  &--arrow-right::after {
+    mask: url('../icons/ico_arrow-right.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--book,
+  &--book::after {
+    mask: url('../icons/ico_book.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--yt,
+  &--yt::after {
+    mask: url('../icons/ico_youtube.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--list,
+  &--list::after {
+    mask: url('../icons/ico_list.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--close,
+  &--close::after {
+    mask: url('../icons/ico_close.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--search,
+  &--search::after {
+    mask: url('../icons/ico_search.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--prospect,
+  &--prospect::after {
+    mask: url('../icons/ico_prospect.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--tick,
+  &--tick::after {
+    mask: url('../icons/ico_tick.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--info,
+  &--info::after {
+    mask: url('../icons/ico_info.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--close-small,
+  &--close-small::after {
+    mask: url('../icons/ico_close-small.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--drag,
+  &--drag::after {
+    mask: url('../icons/ico_drag.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--help-menu,
+  &--help-menu::after {
+    mask: url('../icons/ico_help-menu.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--settings,
+  &--settings::after {
+    mask: url('../icons/ico_settings.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--check,
+  &--check::after {
+    mask: url('../icons/ico_check.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--arrow-up,
+  &--arrow-up::after {
+    mask: url('../icons/ico_up-small.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--match,
+  &--match::after {
+    mask: url('../icons/ico_match.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--html,
+  &--html::after {
+    mask: url('../icons/ico_html.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--edit,
+  &--edit::after {
+    mask: url('../icons/ico_edit.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--plus,
+  &--plus::after {
+    mask: url('../icons/ico_plus.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--error,
+  &--error::after {
+    mask: url('../icons/ico_error.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--play,
+  &--play::after {
+    mask: url('../icons/ico_play.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--draft,
+  &--draft::after {
+    mask: url('../icons/ico_draft.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--done,
+  &--done::after {
+    mask: url('../icons/ico_done.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--stop,
+  &--stop::after {
+    mask: url('../icons/ico_stop.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--pause,
+  &--pause::after {
+    mask: url('../icons/ico_pause.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--copy,
+  &--copy::after {
+    mask: url('../icons/ico_copy.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--left,
+  &--left::after {
+    mask: url('../icons/ico_left.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--right,
+  &--right::after {
+    mask: url('../icons/ico_right.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--delete,
+  &--delete::after {
+    mask: url('../icons/ico_delete.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  &--snippets,
+  &--snippets::after {
+    mask: url('../icons/ico_snippets.svg') no-repeat center;
+    @extend .ico__helpers--default;
+  }
+
+  /* GLOW */
+
+  &-glow {
+    border-radius: 5px;
+    background-color: transparent;
+    @extend .ico__helpers--glow;
+
+    &::after {
+      content: '';
+      @extend .ico__helpers--center;
+      transition: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      @extend .ico-color--ash-blue;
+
+      &::after {
+        @extend .ico-color--midnight-blue;
+      }
+    }
+
+    &--circle {
+      border-radius: 50%;
+
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  /* SIZE */
+
+  &-size--xxs {
+    width: 16px;
+    height: 16px;
+
+    &.ico-glow {
+      width: 20px;
+      height: 20px;
+
+      &::after {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &-size--xs {
+    width: 20px;
+    height: 20px;
+
+    &.ico-glow {
+      width: 24px;
+      height: 24px;
+
+      &::after {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &-size--sm {
+    width: 24px;
+    height: 24px;
+
+    &.ico-glow {
+      width: 26px;
+      height: 26px;
+
+      &::after {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &-size--md {
+    width: 28px;
+    height: 28px;
+
+    &.ico-glow {
+      width: 32px;
+      height: 32px;
+
+      &::after {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  &-size--lg {
+    width: 32px;
+    height: 32px;
+
+    &::after {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.ico-glow {
+      width: 36px;
+      height: 36px;
+
+      &--circle {
+        width: 36px;
+        height: 36px;
+
+        &::after {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+
+    &-size--xl {
+      width: 36px;
+      height: 36px;
+
+      &.ico-glow {
+        width: 44px;
+        height: 44px;
+
+        &::after {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+  }
+
+  /* HELPERS */
+
+  &__helpers--center {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: inline-block;
+  }
+
+  &__helpers--default {
+    display: inline-block;
+    mask-size: contain;
+    transition: background-color 0.2s ease;
+  }
+
+  &__helpers--glow {
+    position: relative;
+    mask: none;
+  }
+
+  /* ACTIONS */
+
+  &-disabled {
+    cursor: default;
+    @extend .ico-color--metal-blue;
+
+    &:hover {
+      @extend .ico-color--metal-blue;
+    }
+
+    &.ico-glow {
+      cursor: default;
+      background-color: unset;
+
+      &::after {
+        @extend .ico-color--metal-blue;
+      }
+
+      &:hover {
+        background-color: unset;
+
+        &::after {
+          @extend .ico-color--metal-blue;
+        }
+      }
+
+      &.ico-active {
+        cursor: default;
+        @extend .ico-color--ghost-blue;
+
+        &:hover {
+          @extend .ico-color--ghost-blue;
+        }
+      }
+    }
+  }
+
+  &-active {
+    &.ico-glow {
+      @extend .ico-color--silver-blue;
+      cursor: pointer;
+
+      &::after {
+        @extend .ico-color--midnight-blue;
+      }
+    }
+
+    &.ico-after-color--blue {
+      &.ico-glow {
+        @extend .ico-color--cornflower-blue-15;
+        cursor: pointer;
+
+        &::after {
+          @extend .ico-color--iris-blue;
+        }
+      }
+    }
+  }
+
+  /* GENERATORS */
+
+  @mixin ico-color($name, $bg: $spring-green) {
+    &-color--#{$name},
+    &-color--#{$name}:hover {
+      background-color: #{$bg};
+    }
+  }
+
+  @include ico-color('spring-green');
+  @include ico-color('cherry-red', $cherry-red);
+  @include ico-color('iris-blue', $iris-blue);
+  @include ico-color('pumpkin-orange', $pumpkin-orange);
+  @include ico-color('midnight-blue', $midnight-blue);
+  @include ico-color('storm-blue', $storm-blue);
+  @include ico-color('cloudy-blue', $cloudy-blue);
+  @include ico-color('ash-blue', $ash-blue);
+  @include ico-color('spring-green', $spring-green);
+  @include ico-color('cornflower-blue', $cornflower-blue);
+  @include ico-color('cornflower-blue-15', $cornflower-blue-15);
+  @include ico-color('ghost-blue', $ghost-blue);
+  @include ico-color('metal-blue', $metal-blue);
+  @include ico-color('silver-blue', $silver-blue);
+  @include ico-color('white', $white);
+
+  @mixin ico-after-color($name, $bg: $spring-green) {
+    &-after-color--#{$name}::after,
+    &-after-color--#{$name}:hover::after {
+      background-color: $bg;
+    }
+  }
+
+  @include ico-after-color('spring-green', $spring-green);
+  @include ico-after-color('iris-blue', $iris-blue);
+  @include ico-after-color('pumpkin-orange', $pumpkin-orange);
+  @include ico-after-color('midnight-blue', $midnight-blue);
+  @include ico-after-color('cloudy-blue', $cloudy-blue);
+  @include ico-after-color('cherry-red', $cherry-red);
+  @include ico-after-color('cornflower-blue', $cornflower-blue);
+  @include ico-after-color('metal-blue', $metal-blue);
+  @include ico-after-color('ash-blue', $ash-blue);
+  @include ico-after-color('white', $white);
+
+  @mixin ico-hover($name, $bg) {
+    &-hover--#{$name}:hover {
+      background-color: $bg;
+      cursor: pointer;
+    }
+  }
+
+  @include ico-hover('spring-green', $spring-green);
+  @include ico-hover('cherry-red', $cherry-red);
+  @include ico-hover('iris-blue', $iris-blue);
+  @include ico-hover('pumpkin-orange', $pumpkin-orange);
+  @include ico-hover('metal-blue', $metal-blue);
+  @include ico-hover('foggy-blue', $foggy-blue);
+  @include ico-hover('midnight-blue', $midnight-blue);
+  @include ico-hover('cloudy-blue', $cloudy-blue);
+  @include ico-hover('ash-blue', $ash-blue);
+
+  @mixin ico-active($name, $bg) {
+    &-active--#{$name},
+    &-active--#{$name}:hover {
+      background-color: $bg;
+    }
+  }
+}

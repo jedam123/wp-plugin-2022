@@ -1,0 +1,119 @@
+<div class="wfw-campaigns" @animate *ngIf="!loader; else loaderComponent">
+  <h1>Shortcodes</h1>
+  <div class="wfw-campaigns__desc">
+    Copy the specific shortcode and paste it on any page on your WordPress
+    website to make the form visible there.
+  </div>
+  <ng-container *ngIf="data; else emptyState">
+    <h2>Shortcode for main prospect list</h2>
+    <div class="wfw-campaigns__belt">
+      <div class="wfw-campaigns__belt-left">
+        <span
+          class="ico-size--lg ico-color--white ico-glow ico-glow--circle ico--html ico-after-color--midnight-blue ico-hover--white"
+        ></span>
+        <span class="wfw-campaigns__belt-title">
+          Shortcode for main prospect list
+        </span>
+      </div>
+      <div class="wfw-campaigns__belt-right">
+        <span class="wfw-campaigns__belt-shortcode">
+          [woodpecker-connector]
+        </span>
+        <span
+          appTooltip="Copy"
+          [offset]="10"
+          class="ico--copy ico-glow ico-after-color--midnight-blue ico-size--xs"
+          (click)="copy($event, '[woodpecker-connector]')"
+        ></span>
+      </div>
+    </div>
+
+    <h2>Shortcodes for campaigns</h2>
+    <div class="wfw-campaigns__table">
+      <div class="wfw-filter">
+        <div class="wfw-filter__name">filter by:</div>
+        <app-filter
+          label="Status"
+          [options]="statusOption"
+          [keysList]="selectedStatusOptions"
+          [width]="158"
+          (filter)="filter($event, 'status')"
+        ></app-filter>
+        <app-filter
+          label="Sent from"
+          [options]="sentFromOption"
+          [keysList]="selectedSentFromOption"
+          [width]="314"
+          (filter)="filter($event, 'from_email')"
+        ></app-filter>
+        <app-input
+          placeholder="Search"
+          type="search"
+          [value]="searchValue"
+          (onEnter)="searchData($event)"
+          #search
+        ></app-input>
+      </div>
+      <div class="wfw-table wfw-table--header">
+        <div class="wfw-table__cell"></div>
+        <div class="wfw-table__cell">Campaign name</div>
+        <div class="wfw-table__cell">Sent from</div>
+        <div class="wfw-table__cell">Shortcode</div>
+      </div>
+      <ng-container *ngIf="data.length > 0; else noResult">
+        <div
+          class="wfw-table wfw-table--row"
+          *ngFor="let row of data | slice: pagination.from:pagination.to"
+        >
+          <div class="wfw-table__cell">
+            <span
+              class="status"
+              [class]="'status--' + row.status.toLowerCase()"
+            ></span>
+          </div>
+          <div class="wfw-table__cell">{{ row.name }}</div>
+          <div class="wfw-table__cell">{{ row.from_email }}</div>
+          <div class="wfw-table__cell">
+            <div class="wfw-campaigns__shortcode">
+              <span>[woodpecker-connector id={{ row.id }}]</span>
+              <span
+                appTooltip="Copy"
+                [offset]="10"
+                class="ico--copy ico-glow ico-after-color--midnight-blue ico-size--xs"
+                (click)="
+                  copy($event, '[woodpecker-connector id=' + row.id + ']')
+                "
+              ></span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noResult>
+        <app-no-result (clickEvent)="clearFilters()"></app-no-result>
+      </ng-template>
+    </div>
+
+    <app-pagination
+      [pagination]="pagination"
+      (pageEmitter)="setPagination($event)"
+      *ngIf="pagination.count > 10"
+    ></app-pagination>
+    <app-toast></app-toast>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <app-empty-state
+      [imageStyle]="'img--api-key'"
+      [title]="'Connect your API from Woodpecker'"
+    >
+      To unlock all your shortcodes in the Integration tab, go to your
+      Woodpecker<br />
+      account, generate and copy API key and paste it on the settings page.<br />
+      <a routerLink="/wfw-settings/api-key">Go to Settings</a>
+    </app-empty-state>
+  </ng-template>
+</div>
+
+<ng-template #loaderComponent>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,7 @@
+<div
+  [class]="getBtnStyle"
+  [class.wfw-btn--disabled]="!isEnabled"
+  (click)="onClick()"
+>
+  <ng-content></ng-content>
+</div>

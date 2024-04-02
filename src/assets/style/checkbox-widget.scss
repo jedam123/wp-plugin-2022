@@ -1,0 +1,77 @@
+.wfw-checkbox-widget {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+
+  &__box {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+
+  &__label,
+  &__input {
+    cursor: pointer;
+  }
+
+  &__label {
+    user-select: none;
+  }
+
+  &__input,
+  &__placeholder {
+    left: 0;
+    top: 0;
+    border-radius: 3px;
+  }
+
+  &__placeholder {
+    width: 14px;
+    height: 14px;
+    border: 1px solid $metal-blue;
+    background-color: $white;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    &::after {
+      content: '';
+      @extend .ico--tick;
+      @extend .ico-color--white;
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    appearance: none;
+    border: none;
+    margin: 0;
+    z-index: 2;
+    opacity: 1;
+    border-radius: 3px;
+    box-shadow: none;
+    position: absolute;
+
+    &:checked + .wfw-checkbox-widget__placeholder {
+      background-color: $spring-green;
+      border-color: $spring-green;
+    }
+
+    &:disabled + .wfw-checkbox-widget__placeholder {
+      background-color: $mint-green;
+      border-color: $mint-green;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}

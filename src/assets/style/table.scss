@@ -1,0 +1,40 @@
+.wfw-table {
+  display: grid;
+  grid-gap: 8px;
+
+  &__no-results {
+    margin-top: 49px;
+    display: block;
+  }
+
+  &--header {
+    background-color: $ash-blue;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: 500;
+
+    .wfw-table__cell {
+      padding: 10px 0;
+      border-right: 1px solid $grey;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  &--row {
+    border-bottom: 1px solid $grey;
+    height: 36px;
+    padding: 14px 0;
+    font-size: 15px;
+
+    .wfw-table__cell {
+      line-height: 36px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.wfw-edit-panel {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  color: $midnight-blue;
+  z-index: 2;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: $midnight-blue;
+    opacity: 0.2;
+  }
+
+  &__container {
+    height: calc(100% - 92px);
+    overflow: hidden;
+    width: 262px;
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 62px 35px 30px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 60px;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    position: absolute;
+    bottom: 30px;
+  }
+
+  .ico--close {
+    position: absolute;
+    right: 20px;
+    top: 52px;
+  }
+
+  app-button {
+    margin-bottom: 16px;
+    display: block;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  app-input,
+  app-dropdown {
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  app-checkbox {
+    margin-top: 32px;
+    display: block;
+  }
+}

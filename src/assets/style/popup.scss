@@ -1,0 +1,62 @@
+.wfw-popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  color: $midnight-blue;
+  z-index: 2;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+
+    &--color {
+      background-color: $midnight-blue;
+      opacity: 0.2;
+    }
+  }
+
+  &__container {
+    width: 334px;
+    height: auto;
+    background-color: $white;
+    border: 1px solid $grey;
+    box-shadow: 6px 4px 30px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 5px;
+    padding: 38px 8px 30px;
+  }
+
+  &__icon {
+    margin: 0 auto 32px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  &__action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 19px;
+    margin-top: 60px;
+    box-sizing: border-box;
+  }
+}

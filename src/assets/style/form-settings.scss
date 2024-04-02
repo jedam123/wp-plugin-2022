@@ -1,0 +1,108 @@
+.wfw-form-settings {
+  app-empty-state {
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  app-field-preview {
+    .wfw-preview-field {
+      &__input {
+        cursor: default;
+      }
+
+      &__move {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .wfw-panel {
+    margin-bottom: 20px;
+
+    app-input {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .wfw-action-header {
+    margin-bottom: 23px;
+  }
+
+  .wfw-fields__manage {
+    padding-top: 28px;
+    padding-bottom: 36px;
+  }
+
+  &__custom-style {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 42px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+
+    .ico--info {
+      margin-left: 6px;
+    }
+  }
+
+  &__colors-panel {
+    width: 100%;
+    height: 132px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding-top: 39px;
+
+    @media only screen and (max-width: 1176px) {
+      height: auto;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__colors-row {
+    display: flex;
+    width: 278px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @media only screen and (max-width: 1176px) {
+      width: 100%;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+
+      .wfw-form-settings__colors-box {
+        margin-right: 21px;
+
+        &:last-child {
+          margin-top: 20px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__colors-label {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}

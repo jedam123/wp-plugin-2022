@@ -1,0 +1,28 @@
+.wfw-info-bar {
+  background-color: $cornflower-blue;
+  color: $white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 11px 20px;
+  font-weight: 500;
+  z-index: 1;
+
+  .ico-glow {
+    margin-right: 8px;
+    cursor: default;
+  }
+
+  a {
+    margin-left: 40px;
+    font-weight: 500;
+    color: $white;
+    text-decoration: underline;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

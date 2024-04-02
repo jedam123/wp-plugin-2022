@@ -1,0 +1,28 @@
+.wfw-list-box {
+  margin-bottom: 40px;
+
+  ul {
+    padding: 0;
+    margin-top: 13px;
+    list-style-type: none;
+
+    li {
+      line-height: 24px;
+      padding-left: 36px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &::before {
+        content: '';
+        left: 0;
+        top: 0;
+        position: absolute;
+        @extend .ico--check;
+        @extend .ico-size--sm;
+        @extend .ico-color--spring-green;
+      }
+    }
+  }
+}

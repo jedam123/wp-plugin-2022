@@ -1,0 +1,21 @@
+<div class="wfw-filter-box">
+  <div
+    class="wfw-filter-box__label"
+    [class.wfw-filter-box__label--active]="isOpen"
+    (click)="openTooltip($event)"
+    #filter
+  >
+    {{ label }}
+    <span *ngIf="keysList.length > 0" class="wfw-filter-box__bracket"
+      >({{ keysList.length }})</span
+    >
+  </div>
+  <app-popup-tooltip
+    [data]="options"
+    [width]="width"
+    [topOffset]="8"
+    (choose)="setValue($event)"
+    class="wfw-filter-box__list"
+    #tooltip
+  ></app-popup-tooltip>
+</div>

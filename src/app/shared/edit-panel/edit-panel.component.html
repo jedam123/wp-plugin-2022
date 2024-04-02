@@ -1,0 +1,50 @@
+<div class="wfw-edit-panel">
+  <div class="wfw-edit-panel__overlay"></div>
+  <div class="wfw-edit-panel__container" @animate *ngIf="isOpen">
+    <span
+      class="ico--close ico-after-color--midnight-blue ico-glow ico-size--xs"
+      (click)="onClose()"
+    ></span>
+    <div class="wfw-edit-panel__title">Edit: {{ data.name }}</div>
+    <app-dropdown
+      [data]="dropdownData"
+      [isError]="isError"
+      *ngIf="dropdownData"
+      (choose)="selectItem($event)"
+    ></app-dropdown>
+    <app-input
+      label="Label"
+      placeholder="E.g. Email"
+      [value]="data.name"
+      (onEdit)="newData.name = $event"
+    ></app-input>
+    <app-input
+      label="Validation message"
+      placeholder="E.g. happy.john@clients.co"
+      [value]="data.validation_msg"
+      [isEnabled]="data.required || this.newData.required"
+      (onEdit)="newData.name = $event"
+    ></app-input>
+    <app-checkbox
+      name="required"
+      label="Required"
+      [isEnabled]="data.slug !== 'EMAIL'"
+      [isChecked]="data.required"
+      (toggleCheckbox)="toggleCheckbox($event)"
+    ></app-checkbox>
+    <div class="wfw-edit-panel__actions">
+      <app-button [buttonWidgetModel]="buttonDone" (open)="onDone()">
+        Done
+      </app-button>
+      <app-button [buttonWidgetModel]="buttonCancel" (open)="cancel()">
+        Cancel
+      </app-button>
+    </div>
+  </div>
+</div>
+<app-popup
+  [popupData]="reminderPopup"
+  (onOk)="cancel()"
+  (onCancel)="back()"
+  *ngIf="showReminder"
+></app-popup>
